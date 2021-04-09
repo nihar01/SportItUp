@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins= "*")
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("api")
 public class UserController {
 
 
@@ -40,7 +40,7 @@ public class UserController {
 
     }
 
-    @PutMapping("user/{id}")
+    @PutMapping("/user/{id}")
     public ResponseEntity<User> updateUser(@PathVariable Integer id, @RequestBody User user)
     {
         return userService.updateUser(id,user);

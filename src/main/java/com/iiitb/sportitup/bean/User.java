@@ -16,8 +16,16 @@ public class User {
     @Column
     private String lastName;
 
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
+    }
+
     @Column(length=50,nullable = false,unique = true)
-    private String email;
+    private String emailId;
 
     @Column(length=10)
     private Integer contactNumber;
@@ -54,13 +62,7 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public Integer getContactNumber() {
         return contactNumber;
@@ -86,10 +88,10 @@ public class User {
         isAdminFlag = adminFlag;
     }
 
-    public User(String firstName, String lastName, String email, Integer contactNumber, String password, Boolean isAdminFlag) {
+    public User(String firstName, String lastName, String emailId, Integer contactNumber, String password, Boolean isAdminFlag) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.emailId = emailId;
         this.contactNumber = contactNumber;
         this.password = password;
         this.isAdminFlag = isAdminFlag;
