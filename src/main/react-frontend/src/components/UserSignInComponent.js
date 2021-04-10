@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class UserLoginComponent extends Component {
+class UserSignInComponent extends Component {
 
     constructor(props) {
         super(props)
@@ -56,9 +56,9 @@ class UserLoginComponent extends Component {
                                             <input placeholder="Password" name="password" type="password"  className="form-control" 
                                                 value={this.state.password} onChange={this.changePasswordHandler}/>
                                         </div>
-                                        
+                                        <br></br>
 
-                                        <button className="btn btn-success" type="submit" onClick={this.validateSignIn}>Sign In</button>
+                                        <button className="btn btn-success btn-block" type="submit" onClick={this.validateSignIn}>Sign In</button>
                                         
                                     </form>
                                 </div>
@@ -72,4 +72,4 @@ class UserLoginComponent extends Component {
     }
 }
 
-export default UserLoginComponent;
+export default UserSignInComponent;

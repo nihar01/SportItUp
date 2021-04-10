@@ -6,7 +6,8 @@ import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import Welcome from './components/Welcome'
 import UserRegisterComponent from './components/UserRegisterComponent';
-import UserLoginComponent from './components/UserLoginComponent'
+import UserSignInComponent from './components/UserSignInComponent'
+import VenueList from './components/VenueList';
 
 
 function App() {
@@ -19,8 +20,8 @@ function App() {
                   <Switch>
                   <Route path="/" exact component={Welcome}></Route>
                   <Route path="/userRegisterComponent" component={UserRegisterComponent}></Route>
-                  <Route path="/userLoginComponent" component={UserLoginComponent}></Route>
-                 
+                  <Route path="/userSignInComponent" component={UserSignInComponent}></Route>
+                  <Route path="/VenueList" component={VenueList}></Route>
 
                   </Switch>
                 </div>

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import UserLoginComponent from './UserLoginComponent'
 
 class HeaderComponent extends Component {
     constructor(props) {
@@ -9,14 +8,11 @@ class HeaderComponent extends Component {
         this.state = {
                  
         }
-        this.navigateToSignin=this.navigateToSignin.bind(this)
+        
 
     }
 
-navigateToSignin()
-{
-    this.props.history.push('/userLogin');
-}
+
 
     render() {
         return (
@@ -41,7 +37,7 @@ navigateToSignin()
         </li>
         
         <li className="nav-item">
-        <Link to="/userLoginComponent">
+        <Link to="/userSignInComponent">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Sign In</a>
         </Link>
         </li>

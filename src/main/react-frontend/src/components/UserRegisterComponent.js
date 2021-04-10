@@ -60,7 +60,7 @@ class  UserRegisterComponent extends Component {
         // step 5
         // if(this.state.id === '_add'){
             UserService.createUser(user).then(res =>{
-                this.props.history.push('/userLoginComponent');
+                this.props.history.push('/userSignInComponent');
             });
         // }else{
         //     UserService.updateUser(user, this.state.id).then( res => {
