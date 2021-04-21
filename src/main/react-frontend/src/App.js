@@ -8,6 +8,7 @@ import Welcome from './components/Welcome'
 import UserRegisterComponent from './components/UserRegisterComponent';
 import UserSignInComponent from './components/UserSignInComponent'
 import VenueList from './components/VenueList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -25,7 +26,7 @@ function App() {
 
                   </Switch>
                 </div>
-                <FooterComponent/>
+        <FooterComponent/>
       </Router>
     </div>
    

@@ -43,7 +43,9 @@ class HeaderComponent extends Component {
         </li>
       
       <li className="nav-item">
+        <Link to="/VenueList">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Venues</a>
+          </Link >
         </li>
       
 
