@@ -56,4 +56,11 @@ public class UserService {
         return ResponseEntity.ok(updatedUser);
     }
 
+
+    public User getUserByEmailId(String email){
+        User user= userRepository.findByEmailId(email);
+
+        return user;  //entity is returned along with the status
+    }
+
 }

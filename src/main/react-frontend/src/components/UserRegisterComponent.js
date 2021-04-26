@@ -57,7 +57,7 @@ class  UserRegisterComponent extends Component {
         contactNumber:this.state.contactNumber, password:this.state.password, isAdminFlag: this.state.isAdminFlag};
         console.log('user => ' + JSON.stringify(user));
 
-        // step 5
+        // step 5is_admin_flag
         // if(this.state.id === '_add'){
             UserService.createUser(user).then(res =>{
                 this.props.history.push('/userSignInComponent');

@@ -45,4 +45,23 @@ public class UserController {
     {
         return userService.updateUser(id,user);
     }
+
+    @PostMapping("/user/login")
+    public ResponseEntity<User> login(@RequestBody User user){
+
+
+        String email = user.getEmailId();
+        String pass = user.getPassword();
+        System.out.println("email"+ email+" "+pass);
+        User loggedIn = userService.getUserByEmailId(email);
+        //System.out.println("Size" + li.size());
+
+        if(loggedIn.getEmailId().equals(email) && loggedIn.getPassword().equals(pass)){
+            System.out.println("Password Matched");
+//               System.out.println("flag after:"+ check.isLog_status());
+            return ResponseEntity.ok(loggedIn);
+        }
+
+        return null;
+    }
 }

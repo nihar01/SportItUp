@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import UserService from '../services/UserService'
 class UserSignInComponent extends Component {
 
     constructor(props) {
@@ -27,9 +27,38 @@ class UserSignInComponent extends Component {
         this.setState({password: event.target.value});
     }
 
-    validateSignIn()
+    validateSignIn(e)
     {
+        e.preventDefault();
 
+        let user = {
+            emailId: this.state.emailId,
+            password: this.state.password
+        }
+        console.log("HandleClick")
+        console.log(user);
+        UserService.loginUser(user).then(res => {
+                console.log("response",res);
+                console.log("Signin Component", res.data);
+                console.log("Publisher", res.data.adminFlag);
+                console.log("Request status",res.status)
+            //   if(res.status===200)
+              {
+                if(res.data.adminFlag){
+                    this.props.history.push('/AdminDashboard');
+                }
+                else{
+                    this.props.history.push('/welcome');
+                }
+                console.log("LoggedIn");
+            }
+        })
+            .catch(err =>{
+                console.log(err.response.data);
+                alert("Username or Password doesn't Match!");
+                // window.location.reload(true);
+                });
+        //alert("Login")
     }
 
     render() {
