@@ -9,7 +9,8 @@ import UserRegisterComponent from './components/UserRegisterComponent';
 import UserSignInComponent from './components/UserSignInComponent'
 import VenueList from './components/VenueList';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AdminDashboard from "./components/AdminDashboard"
+import Venueshow from './components/Venueshow';
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
                   <Route path="/userRegisterComponent" component={UserRegisterComponent}></Route>
                   <Route path="/userSignInComponent" component={UserSignInComponent}></Route>
                   <Route path="/VenueList" component={VenueList}></Route>
-
+                  <Route path="/AdminDashboard" component={AdminDashboard}></Route>
+                  <Route path="/Venueshow" component={Venueshow}></Route>
+                  
                   </Switch>
                 </div>
         <FooterComponent/>
