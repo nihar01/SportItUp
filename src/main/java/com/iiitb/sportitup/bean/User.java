@@ -1,6 +1,7 @@
 package com.iiitb.sportitup.bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table
@@ -8,13 +9,19 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int user_id;
+    private int userId;
 
     @Column
     private String firstName;
 
     @Column
     private String lastName;
+
+    @OneToMany(mappedBy = "user",
+            orphanRemoval = true,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private List<Booking> bookings;
 
     public String getEmailId() {
         return emailId;
@@ -39,11 +46,11 @@ public class User {
 
 
     public int getUser_id() {
-        return user_id;
+        return userId;
     }
 
     public void setUser_id(int user_id) {
-        this.user_id = user_id;
+        this.userId = user_id;
     }
 
     public String getFirstName() {

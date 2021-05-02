@@ -2,14 +2,32 @@ import React, { Component } from 'react';
 import UserService from '../services/UserService'
 class UserSignInComponent extends Component {
 
+    loginInputRef = React.createRef();
+    handleFormSubmit(e) {
+        e.preventDefault();
+        const loggedIn = this.state.loggedIn;
+        console.log(loggedIn)
+        console.log(this.state.loggedIn)
+        
+        this.props.handleLogin(loggedIn);
+        
+      }
+
+      handleFormSubmit = this.handleFormSubmit.bind(this);
+
+
     constructor(props) {
         super(props)
-
+        let loggedIn = false
+        let uname = ''
         this.state = {
             // step 2
             id: this.props.match.params.id,
             emailId: '',
             password:'',
+            loggedIn:'' ,
+            uname: this.props.match.params.firstName
+            
 
         }
         this.changeEmailHandler = this.changeEmailHandler.bind(this);
@@ -43,15 +61,29 @@ class UserSignInComponent extends Component {
                 console.log("Publisher", res.data.adminFlag);
                 console.log("Request status",res.status)
             //   if(res.status===200)
-              {
+                this.setState({loggedIn : true})
+                // this.setState({uname : res.data.firstName})
+                // this.setState({uId : res.data.id})
+
+                console.log("LoggedIn");
+                console.log(this.state.loggedIn+"999999999999999999");
+                console.log(this.state.loggedIn+"6666666666666666")
+                console.log(this.state.id)
+                console.log(res.data.user_id)
+                console.log(res.data.firstName)
+        
+                this.props.handleLog(this.state.loggedIn,res.data.user_id);
+                
                 if(res.data.adminFlag){
                     this.props.history.push('/AdminDashboard');
                 }
                 else{
-                    this.props.history.push('/welcome');
+                    this.props.history.push('/Welcome');
                 }
-                console.log("LoggedIn");
-            }
+                
+                console.log(this.state.loggedIn);
+
+            
         })
             .catch(err =>{
                 console.log(err.response.data);
@@ -59,6 +91,12 @@ class UserSignInComponent extends Component {
                 // window.location.reload(true);
                 });
         //alert("Login")
+        // const loggedIn = this.state.loggedIn;
+        // console.log(loggedIn)
+        console.log(this.state.loggedIn+"6666666666666666")
+        
+        // this.props.handleLog(this.state.loggedIn,res.data.user_id);
+        
     }
 
     render() {
@@ -72,7 +110,7 @@ class UserSignInComponent extends Component {
                                     <h2 className="text-center" style={{ marginTop:"15px" }}>Sign In</h2>
                                 }
                                 <div className = "card-body">
-                                    <form>
+                                    <form onSubmit={this.handleFormSubmit}>
                                         
                                         <div className = "form-group">
                                             <label> Email Id: </label>
@@ -100,5 +138,6 @@ class UserSignInComponent extends Component {
         );
     }
 }
+
 
 export default UserSignInComponent;

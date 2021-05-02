@@ -1,6 +1,9 @@
 package com.iiitb.sportitup.bean;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table
@@ -19,6 +22,20 @@ public class Venue {
     @Column
     private String img_link;
 
+
+    @OneToMany(mappedBy = "venue",
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL)
+    private List<Booking> bookings;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "venue_slots",
+        joinColumns = {@JoinColumn(name ="venue_id")},
+            inverseJoinColumns = {@JoinColumn(name = "slot_id")}
+    )
+    private Set<Slots> slots= new HashSet<>();
+
+
     public Venue(){}
 
     public Venue(String venueName, String venueAddress, float costPerHour, String games, String img_link) {
@@ -35,6 +52,14 @@ public class Venue {
 
     public void setVenue_id(int venue_id) {
         this.venue_id = venue_id;
+    }
+
+    public Set<Slots> getSlots() {
+        return slots;
+    }
+
+    public void setSlots(Set<Slots> slots) {
+        this.slots = slots;
     }
 
     public String getVenueName() {

@@ -10,10 +10,24 @@ import ic1 from "../images/football-icon.png"
 
 
 class Welcome extends Component {
+    
+    // constructor(props){
+    //     super(props)
+        
+    //     this.state={
+    //         isloggedIn : false
+    //     }
+
+//    }
+    
     render() {
+        //  console.log(this.props.location.isloggedIn)
+        console.log(this.props.isloggedIn)
         return (
             <div>
                 <BsCarousel/>
+                {/* {console.log(this.props.state.loggedIn)}
+                {console.log(this.props.state.name)} */}
                 <br />
                 <br />
                 <div class="row">
@@ -26,7 +40,9 @@ class Welcome extends Component {
                     {/* <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg> */}
                     <h2>Book a venue</h2>
                     <p>Looking for a place to play !! checkout from our long list of playgrounds and find you favourite</p>
-                    <p><a class="btn btn-secondary" href="/VenueList" role="button">See Venues &raquo;</a></p>
+                    <Link to="/VenueList">
+                    <a className="nav-link " href="" tabindex="-1" aria-disabled="true">See Venues</a>
+                    </Link >
                 </div>
                 <div class="col-lg-6">
                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/></svg>
@@ -40,7 +56,9 @@ class Welcome extends Component {
 </svg>
                     <h2>See your History</h2>
                     <p>Check history of your previous bookings</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">See history &raquo;</a></p>
+                    <Link to="/BookingList">
+                    <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Check History</a>
+                    </Link >
                 </div>
                 </div>
 

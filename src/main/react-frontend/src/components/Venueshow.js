@@ -1,6 +1,8 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import {Button , Card} from "react-bootstrap"
+import { Link } from 'react-router-dom';
+
 
 function Venueshow(props){
 console.log(props);
@@ -13,7 +15,9 @@ console.log(props);
             <Card.Text>
                 {props.venueaddress}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Link to={{pathname:"/DoBooking",params:{props}  }} >
+                <a className="nav-link " href="" tabindex="-1" aria-disabled="true">proceed to book</a>
+            </Link >
         </Card.Body>
         </Card>
         // <div>
