@@ -23,7 +23,8 @@ class VenueList extends Component {
 
     render() {
         console.log(this.props)
-        const varr = this.state.vList.map(ven => <Venueshow key={ven.venue_id} uId={this.props.uId} img_link={ven.img_link} venuename={ven.venueName} venueaddress={ven.venueAddress} coatperhour={ven.costPerHour}/>)
+        console.log(this.state.vList)
+        const varr = this.state.vList.map(ven => <Venueshow key={ven.venue_id} slots={ven.slots} uId={this.props.uId} img_link={ven.img_link} venuename={ven.venueName} venueaddress={ven.venueAddress} coatperhour={ven.costPerHour}/>)
             
         console.log(varr);
         return(
