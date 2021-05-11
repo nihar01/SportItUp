@@ -27,10 +27,28 @@ class BookingList extends Component {
             console.log(res.data)
 
         });
-        console.log(this.state.uId)
+        console.log(this.state.bList)
     }
     
+    bookingTime(booking){
+    //    booking.venue.slots.forEach( function(element) {
+    //        if(element.slot_id==booking.venue.slot){
+    //         console.log(element.start_time)   
+    //         return element.start_time;
+    //        }
 
+    //    });
+    console.log(booking.slot)
+    let time=booking.venue.slots.map(function(data){
+        console.log(data.slot_id)
+        console.log(booking.slot)
+        if(data.slot_id==booking.slot){
+                    console.log(data.start_time)   
+                    return (data.start_time+" To "+data.end_time)
+                   }
+    });
+         return(time);
+}
 
     render() {
         console.log(this.props.uId)
@@ -62,9 +80,7 @@ class BookingList extends Component {
                                     <td> { booking.venue.venueName} </td>
                                     <td> { booking.user.firstName +" " +booking.user.lastName} </td>
                                     <td> { booking.booking_date} </td>
-                                    <td> { booking.booking_time} </td>   
-                                    {/* <td> {employee.lastName}</td>
-                                    <td> {employee.emailId}</td> */}
+                                    <td> { this.bookingTime(booking)} </td>
                                     
                                </tr>
                            )

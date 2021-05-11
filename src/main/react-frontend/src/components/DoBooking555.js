@@ -37,9 +37,16 @@ export default class DoBooking extends Component {
          this.setState({selectedSlot : event.target.value})
         console.log(event)
     }
-    
+    cancel(){
+        this.props.history.push('/VenueList');
+    }
 
-    
+    changeDateHandler = (event) => {
+        this.setState({selectedDate: event});
+    }
+    changeSlotHandler = (event)=>{
+        this.setState({selectedSlot : event.target})
+    }
     
     render() {
         console.log(this.props.location.params.props)
