@@ -25,7 +25,9 @@ class BookingList extends Component {
         BookingService.getBookingByUser(this.state.uId).then((res) => {
             this.setState({ bList: res.data});
             console.log(res.data)
+
         });
+        console.log(this.state.uId)
     }
     
 
@@ -37,13 +39,14 @@ class BookingList extends Component {
         <h2 className="text-center">Booking History</h2>
         <br></br>
         <div className = "row">
-               <table className = "table table-striped table-bordered">
+               <table  className = "table table-striped table-bordered">
 
                    <thead>
                        <tr>
+                           <th>#</th>
                            <th>slot</th>
                            <th> venue Name</th>
-                           {/* <th> booked for</th> */}
+                           <th> booked By</th>
                            <th> Booking date</th>
                            <th> booking time</th>
                            
@@ -55,8 +58,9 @@ class BookingList extends Component {
                                booking => 
                                <tr key = {booking.booking_id}>
                                     <td> { booking.slot} </td>
+                                    <td> { booking.slot} </td>
                                     <td> { booking.venue.venueName} </td>
-                                    {/* <td> { booking.slot} </td> */}
+                                    <td> { booking.user.firstName +" " +booking.user.lastName} </td>
                                     <td> { booking.booking_date} </td>
                                     <td> { booking.booking_time} </td>   
                                     {/* <td> {employee.lastName}</td>

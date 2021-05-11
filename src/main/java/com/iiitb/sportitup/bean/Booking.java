@@ -25,18 +25,18 @@ public class Booking {
     @Column
     private Date booking_date;
 
-    @Column
-    private Time booking_time;
+//    @Column
+//    private Time booking_time;
 
     @Column
     private int slot;
     public Booking(){}
 
-    public Booking(User user, Venue venue, Date booking_date, Time booking_time, int slot) {
+    public Booking(User user, Venue venue, Date booking_date, int slot) {
         this.user = user;
         this.venue = venue;
         this.booking_date = booking_date;
-        this.booking_time = booking_time;
+//        this.booking_time = booking_time;
         this.slot = slot;
     }
 
@@ -72,13 +72,13 @@ public class Booking {
         this.booking_date = booking_date;
     }
 
-    public Time getBooking_time() {
-        return booking_time;
-    }
+//    public Time getBooking_time() {
+//        return booking_time;
+//    }
 
-    public void setBooking_time(Time booking_time) {
-        this.booking_time = booking_time;
-    }
+//    public void setBooking_time(Time booking_time) {
+//        this.booking_time = booking_time;
+//    }
 
     public int getSlot() {
         return slot;

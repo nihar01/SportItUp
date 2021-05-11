@@ -1,6 +1,6 @@
 FROM openjdk:8
-MAINTAINER Nihar Kanwar nihar_kanwar@yahoo.co.in
-COPY ./target/sportitup-0.0.1-SNAPSHOT.war ./
+
+COPY ./target/sportitup-0.0.1-SNAPSHOT.jar sportitup-0.0.1-SNAPSHOT.jar
 WORKDIR ./
 EXPOSE 8081
-CMD ["java", "-jar", "sportitup-0.0.1-SNAPSHOT.war"]
+ENTRYPOINT ["java", "-jar", "sportitup-0.0.1-SNAPSHOT.jar"]
