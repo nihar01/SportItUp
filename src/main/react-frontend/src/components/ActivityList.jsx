@@ -60,7 +60,7 @@ class ActivityList extends Component {
         const activityComponents = this.state.activityInfo.map((activity) => {
             return (
                 <ActivityComponent
-                    id={activity.activity_id}
+                    activity_id={activity.activity_id}
                     sportName={activity.sportName}
                     activityDate={activity.activityDate}
                     activityTime={activity.activityTime}
@@ -75,9 +75,9 @@ class ActivityList extends Component {
                 {this.state.isLoading ? this.setStateToFalse :
                     <div>
                         <h1>Activity List</h1>
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
+                        
                         {activityComponents}
-                        </div>
+                        
                     </div>}
             </div>
         )

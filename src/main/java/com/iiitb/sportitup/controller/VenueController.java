@@ -24,4 +24,6 @@ public class VenueController {
     public List<Venue> getVenue(){
         return venueService.getVenue();
     }
+
+
 }

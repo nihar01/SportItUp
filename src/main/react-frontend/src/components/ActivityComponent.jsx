@@ -19,6 +19,7 @@ class ActivityComponent extends Component {
 
     render() {
         return (
+            <div className = "card col-md-6 offset-md-3" style={{borderRadius:"25px",padding :"20px"}}>
             <div className="card-body">
             
             <div className="ActivityComponent" href="" style={{width: '30rem'}}>
@@ -30,12 +31,12 @@ class ActivityComponent extends Component {
                 <p>Players Required:{this.state.numberOfPlayers} </p>
                 <p>Charges per person:{this.state.chargesPerPerson} </p>
                 <Link to={{pathname:'/ActivityDetails',activity_id:this.state.activity_id, userId:this.state.userId}}>
-                    <button className="viewDetails"> View Details</button>
+                    <button className="btn btn-primary">View Details</button>
                 </Link>
             </div>
-            <hr/>
+           
             </div>
-            
+            </div>
 
         )
     }

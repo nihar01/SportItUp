@@ -15,6 +15,9 @@ class UserService{
         console.log('in create activity service', activity.sportName);
         return axios.post(ACTIVITY_API_BASE_URL,activity);
     }
+    getActivityById(activityId){
+        return axios.get(ACTIVITY_API_BASE_URL + '/' + activityId);
+    }
 
     // getUserById(userId){
     //     return axios.get(ACTIVITY_API_BASE_URL + '/' + userId);
