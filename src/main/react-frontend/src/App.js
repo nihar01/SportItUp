@@ -13,6 +13,9 @@ import AdminDashboard from "./components/AdminDashboard"
 import Venueshow from './components/Venueshow';
 import BookingList from './components/BookingList';
 import DoBooking from './components/DoBooking';
+import ActivityDetails from "./components/ActivityDetails"
+import ActivityList from "./components/ActivityList"
+import AddActivity from "./components/AddActivity"
 
 class App extends React.Component {
   
@@ -53,6 +56,9 @@ class App extends React.Component {
                   <Route path="/Venueshow" component={Venueshow}></Route>
                   <Route path="/BookingList" render={()=> <BookingList uId={this.state.uId} isloggedIn={this.state.isloggedIn}/>}></Route>
                   <Route path="/DoBooking" component={DoBooking}></Route>
+                  <Route path="/AddActivity" component={AddActivity}></Route>
+                  <Route path="/ActivityList" component={ActivityList}></Route>
+                  <Route path="/ActivityDetails" component={ActivityDetails}></Route>
                   </Switch>
                 </div>
         <FooterComponent/>

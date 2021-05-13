@@ -42,7 +42,7 @@ class Welcome extends Component {
                     <p>Looking for a place to play !! checkout from our long list of playgrounds and find you favourite</p>
                     <Link to="/VenueList">
                     <a className="nav-link " href="" tabindex="-1" aria-disabled="true">See Venues</a>
-                    </Link >
+                    </Link>
                 </div>
                 <div class="col-lg-6">
                     <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/></svg>
@@ -58,7 +58,7 @@ class Welcome extends Component {
                     <p>Check history of your previous bookings</p>
                     <Link to="/BookingList">
                     <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Check History</a>
-                    </Link >
+                    </Link>
                 </div>
                 </div>
 

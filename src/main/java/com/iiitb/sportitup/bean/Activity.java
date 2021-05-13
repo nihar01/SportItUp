@@ -1,6 +1,7 @@
 package com.iiitb.sportitup.bean;
 
 import javax.persistence.*;
+
 import java.sql.Time;
 import java.util.Date;
 
@@ -12,15 +13,18 @@ public class Activity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int activity_id;
 
-
     @Column
     private String sportName;
     @Column
-    private Date date;
+    private Date activityDate;
+
     @Column
-    private Time time;
+    private Time activityTime;
     @Column
     private int numberOfPlayers;
+    @Column
+    private int chargesPerPerson;
+
 
     public int getActivity_id() {
         return activity_id;
@@ -38,20 +42,20 @@ public class Activity {
         this.sportName = sportName;
     }
 
-    public Date getDate() {
-        return date;
+    public Date getActivityDate() {
+        return activityDate;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setActivityDate(Date activityDate) {
+        this.activityDate = activityDate;
     }
 
-    public Time getTime() {
-        return time;
+    public Time getActivityTime() {
+        return activityTime;
     }
 
-    public void setTime(Time time) {
-        this.time = time;
+    public void setActivityTime(Time activityTime) {
+        this.activityTime = activityTime;
     }
 
     public int getNumberOfPlayers() {
@@ -62,13 +66,22 @@ public class Activity {
         this.numberOfPlayers = numberOfPlayers;
     }
 
+    public int getChargesPerPerson() {
+        return chargesPerPerson;
+    }
+
+    public void setChargesPerPerson(int chargesPerPerson) {
+        this.chargesPerPerson = chargesPerPerson;
+    }
+
     public Activity() {
     }
 
-    public Activity(String sportName, Date date, Time time, int numberOfPlayers) {
+    public Activity(String sportName, Date activityDate, Time activityTime, int numberOfPlayers, int chargesPerPerson) {
         this.sportName = sportName;
-        this.date = date;
-        this.time = time;
+        this.activityDate = activityDate;
+        this.activityTime = activityTime;
         this.numberOfPlayers = numberOfPlayers;
+        this.chargesPerPerson = chargesPerPerson;
     }
 }

@@ -61,7 +61,8 @@ class UserSignInComponent extends Component {
                 console.log("Publisher", res.data.adminFlag);
                 console.log("Request status",res.status)
             //   if(res.status===200)
-                this.setState({loggedIn : true})
+                this.setState({loggedIn : true})             //setting logged in equal to true
+                
                 // this.setState({uname : res.data.firstName})
                 // this.setState({uId : res.data.id})
 
@@ -82,7 +83,7 @@ class UserSignInComponent extends Component {
                 }
                 
                 console.log(this.state.loggedIn);
-
+                alert("Login Successful");
             
         })
             .catch(err =>{
@@ -98,6 +99,7 @@ class UserSignInComponent extends Component {
         // this.props.handleLog(this.state.loggedIn,res.data.user_id);
         
     }
+
 
     render() {
         return (
