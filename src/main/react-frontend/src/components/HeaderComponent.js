@@ -37,20 +37,30 @@ class HeaderComponent extends Component {
       <li className="nav-item">
         <Link to="/VenueList">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Venues</a>
-          </Link >
+          </Link>
         </li>
       
 
       <li className="nav-item">
+      <Link to="/AddActivity">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Create Activity</a>
+          </Link>
         </li>
 
         <li className="nav-item">
+        <Link to="/ActivityList">
+          <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Activity List</a>
+          </Link>
+        </li>
+
+        {/* <li className="nav-item">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Events</a>
-        </li>
+        </li> */}
 
         <li className="nav-item">
+        <Link to="/BookingList">
           <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Bookings</a>
+          </Link>
         </li>
       </ul>
 
