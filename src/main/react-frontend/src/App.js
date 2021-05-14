@@ -63,13 +63,10 @@ class App extends React.Component {
                   <Route path="/Venueshow" component={Venueshow}></Route>
                   <Route path="/BookingList" render={()=> <BookingList uId={this.state.uId} isloggedIn={this.state.isloggedIn}/>}></Route>
                   <Route path="/DoBooking" component={DoBooking}></Route>
-<<<<<<< HEAD
                   <Route path="/NewVenue" component={NewVenue}></Route>
-=======
                   <Route path="/AddActivity" component={AddActivity}></Route>
                   <Route path="/ActivityList" component={ActivityList}></Route>
                   <Route path="/ActivityDetails" component={ActivityDetails}></Route>
->>>>>>> 150e46195fbbc1fefdb0e81cd2deb9b26a078cae
                   </Switch>
                 </div>
         <FooterComponent/>
