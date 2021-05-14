@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import ActivityService from '../services/ActivityService'
+import VenueService from "../services/VenueService"
+
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
 class AddActivity extends Component {
     constructor(props) {
         super(props)
@@ -10,8 +14,11 @@ class AddActivity extends Component {
             sportName: "",
             activityDate: "",   //can add venue aswell
             activityTime: "",
-            numberOfPlayers: "",
-            chargesPerPerson: ""
+            venue_id:"",
+            numberOfPlayers: "",    
+            chargesPerPerson: "",
+            joinedPlayers:0,
+            venueData:[]
 
         }
         // this.changeSportNameHandler = this.changeSportNameHandler.bind(this);
@@ -29,41 +36,32 @@ class AddActivity extends Component {
             [name]: value
         })
     }
-    // step 3
-    // componentDidMount(){
+    componentDidMount(){
 
-    //     // step 4
-    //     if(this.state.id === '_add'){
-    //         return
-    //     }else{
-    //         UserService.getUserById(this.state.id).then( (res) =>{
-    //             let user = res.data;
-    //             this.setState({firstName: user.firstName,
-    //                 lastName: user.lastName,
-    //                 emailId : user.emailId,
-    //                 contactNumber:user.contactNumber,
-    //                 password: user.password,
-    //                 isAdminFlag:user.isAdminFlag
+       VenueService.getVenue().then( res => {
+            this.setState({venueData : res.data});
+            console.log(this.state.venueData[0].venue_id+"-"+this.state.venueData[0].venueName)
+        })
 
-    //             });
-    //         });
-    //     }        
-    // }
+        let data = sessionStorage.getItem('user_id');
+        console.log("userid",data)
+    }
     cancel(){
         this.props.history.push('/');
     }
 
     handleSubmit = (e) => {
         e.preventDefault();
-        let activity = {sportName: this.state.sportName, date: this.state.activityDate, time: this.state.activityTime,
-            numberOfPlayers:this.state.numberOfPlayers, chargesPerPerson :this.state.chargesPerPerson};
+        let activity = {sportName: this.state.sportName, activityDate: this.state.activityDate, activityTime : this.state.activityTime,
+            numberOfPlayers:this.state.numberOfPlayers, chargesPerPerson :this.state.chargesPerPerson, venue_id:{venue_id:this.state.venue_id} ,
+            joinedPlayers:this.state.joinedPlayers, creatorUserId:sessionStorage.getItem("user_id")} ;  
         console.log('activity => ' + JSON.stringify(activity));
 
         // step 5is_admin_flag
         // if(this.state.id === '_add'){
             ActivityService.createActivity(activity).then((res) =>{
                 console.log("activity id",res)
-                
+                alert("Activity Created!")
                 this.props.history.push({pathname:'/ActivityList'});
             });
         // }else{
@@ -94,7 +92,10 @@ class AddActivity extends Component {
     // }
 
 
-
+    // changeDateHandler = (event) => {
+    //     this.setState({activityDate: event});
+    //     console.log("date",event);
+    // }
 
 
     getTitle(){
@@ -130,25 +131,49 @@ class AddActivity extends Component {
                                         <div className = "form-group">
                                             <label> Date :</label>
                                             <input 
-                                            placeholder="Date"
+                                            class="input-group date"
+                                            placeholder="Date" 
                                             name="activityDate" 
-                                            type="date" 
-                                            
+                                            type="date"
+                                           
                                             className="form-control" 
                                             value={this.state.activityDate} 
                                             onChange={this.handleChange} style={{borderRadius:"25px"}}/>
                                         </div>
 
+                                        {/* <DatePicker 
+                                            selected={this.state.activityDate}
+                                            
+                                        
+                                            onChange={date => this.changeDateHandler(date)}
+                                            // dateFormat="yyyy-mm-dd"
+                                            /> */}
+
                                         <div className = "form-group">
                                             <label> Time:</label>
                                             <input 
                                             placeholder="Time" 
+                                        
                                             name="activityTime" type="time" 
                                             className="form-control" 
                                             value={this.state.activityTime} 
                                             onChange={this.handleChange} 
                                             style={{borderRadius:"25px"}}/>
                                         </div>
+
+                                        <div>
+                            <label> Venue: </label>
+                            <select class="form-control"  name="venue_id" value={this.state.venue_id}  
+                            style={{borderRadius:"25px"}} onChange={this.handleChange}>
+                            
+                            <option value=""> -- Select a Venue -- </option>
+                               {this.state.venueData.map((data) => (
+                             <option key={data.venue_id} value={data.venue_id}>
+                                        {data.venueName+"-"+data.venueAddress}
+                                           </option>    
+                                                 ) )} 
+                            </select>
+                            </div>
 
                                         <div className = "form-group">
                                             <label> Number Of Players </label>

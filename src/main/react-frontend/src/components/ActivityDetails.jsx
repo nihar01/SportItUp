@@ -1,69 +1,121 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import ActivityService from "../services/ActivityService"
 import VenueService from "../services/VenueService"
-class ActivityDetails extends Component {
 
+
+class ActivityDetails extends Component {
+   
     constructor(props) {
         super(props);
+        
         this.state = {
             // userId:this.props.location.userId,
             activity_id: this.props.location.activity_id,
            
             activityData:{},         //contains everything returned by api
+            sportName:"",
+            activityDate: "",   //can add venue aswell
+            activityTime: "",
+            venue_id:"",
+            numberOfPlayers: "",    
+            chargesPerPerson: "",
+            joinedPlayers:"",
         
         }
         // this.handleChange = this.handleChange.bind(this)
- 
+        this.handleJoin = this.handleJoin.bind(this)
     
     }
 
     componentDidMount(){
-
+        console.log("userId",sessionStorage.getItem("user_id"))
         console.log("activity id in details",this.state.activity_id)
         ActivityService.getActivityById(this.state.activity_id).then( res => {
-            this.setState({activityData: res.data});
-
-         VenueService.getVenue()
+            console.log(res.data)
+            this.setState({sportName: res.data.sportName});
+            this.setState({activityDate: res.data.activityDate});
+            this.setState({activityTime: res.data.activityTime});
+            this.setState({activityTime: res.data.activityTime});
+            this.setState({numberOfPlayers: res.data.numberOfPlayers});
+            this.setState({chargesPerPerson: res.data.chargesPerPerson});
+            this.setState({joinedPlayers: res.data.joinedPlayers});
+            this.setState({venue_id: res.data.venue_id.venue_id});
             
         })
-    }
+  
+     }
+
+     handleJoin()
+     {
+        // ActivityService.createActivity(activity).then((res) =>{
+        //     console.log("activity id",res)
+            
+        //     this.props.history.push({pathname:'/ActivityList'});
+        // });
+
+
+
+      ActivityService.joinActivity(this.state.activity_id,sessionStorage.getItem("user_id")).then((res) =>{
+        console.log("activity_result",res)
+        
+        if(res.data.joinedPlayers!=undefined)
+        {
+            alert("User with ID:"+sessionStorage.getItem("user_id")+" has joined the activity!"
+            +"\n" +"currently joined players:"+res.data.joinedPlayers+ "\n"+"Slots left:"+ (res.data.numberOfPlayers-res.data.joinedPlayers)  )
+        }
+        else{
+            alert("Number of Player limit is reached!");
+        }
+    });
+     }  
 
     render() {
         return (
             <div>
-                <br></br>
+                
                 <div className = "card col-md-6 offset-md-3" style={{borderRadius:"25px",padding :"20px"}}>
                     <h3 className = "text-center">Activity Details</h3>
                     <div className = "card-body">
                         <div className = "row">
                             <label> Activity Name: </label>
-                            <div> { this.state.activityData.sportName }</div>
+                            <div> { this.state.sportName }</div>
                         </div>
                         <div className = "row">
-                            <label> Date: </label>
-                            <div> { this.state.activityData.activityDate }</div>
+                            <label> Date : </label>
+                            <div> { this.state.activityDate }</div>
                         </div>
                         <div className = "row">
-                            <label> Time: </label>
-                            <div> { this.state.activityData.activityTime }</div>
+                            <label> Time : </label>
+                            <div> { this.state.activityTime }</div>
                             </div>
 
-                            {/* <div className = "row">
-                            <label> Venue: </label>
-                            <div> { this.state.activityData.activityTime }</div>
-                            </div> */}
-
                             <div className = "row">
-                            <label> Number of players: </label>
-                            <div> { this.state.activityData.numberOfPlayers }</div>
+                            <label> Number of players : </label>
+                            <div> { this.state.numberOfPlayers }</div>
                         </div>
 
                         <div className = "row">
-                            <label> Charges per person: </label>
-                            <div> { this.state.activityData.chargesPerPerson }</div>
+                            <label>Number of players Joined : </label>
+                            <div> { this.state.joinedPlayers }</div>
                         </div>
+
+                        <div className = "row">
+                            <label> Charges per person : </label>
+                            <div> { this.state.chargesPerPerson }</div>
+                        </div>
+
+                        <div className = "row">
+                            <label> Venue : </label>
+                            <div> { this.state.venue_id }</div>
+                        </div>
+{/* 
+                        <div className = "row">
+                            <label> # Players Joined : </label>
+                            <div> { this.state.joinedPlayers }</div>
+                        </div> */}
                         <br/>
-                        <button className="btn btn-primary"  > Join Activity</button>
+                        <button className="btn btn-primary"  onClick={this.handleJoin}> Join Activity</button>
                     </div>
 
                 </div>

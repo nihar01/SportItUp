@@ -31,16 +31,17 @@ class ActivityList extends Component {
         if (status === 200) {
             console.log("successful")
         }
+       
         let tempActivityInfo = await response.json()
 
-        if (this.state.userId === undefined) {
-            this.setState({
-                userId: JSON.parse(localStorage.getItem('userId')),
-            })
-        } else {
-            console.log("hi")
-            localStorage.setItem('userId', JSON.stringify(this.state.userId));
-        }
+        // if (this.state.userId === undefined) {
+        //     this.setState({
+        //         userId: JSON.parse(localStorage.getItem('userId')),
+        //     })
+        // } else {
+        //     console.log("hi")
+        //     localStorage.setItem('userId', JSON.stringify(this.state.userId));
+        // }
 
         this.setState({
                 activityInfo: tempActivityInfo,
@@ -66,7 +67,8 @@ class ActivityList extends Component {
                     activityTime={activity.activityTime}
                     numberOfPlayers={activity.numberOfPlayers}
                     chargesPerPerson={activity.chargesPerPerson}
-                    userId={this.state.userId}
+                    venue_id={activity.venue_id.venue_id}
+                    // userId={this.state.userId}
                 />
             )
         })

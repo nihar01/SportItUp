@@ -57,14 +57,15 @@ export default class DoBooking extends Component {
                                     <form>
                                         
                                         <div className = "form-group">
+                                        <label>Pick a Date</label>
                                             <DatePicker 
                                             selected={this.state.selectedDate}
                                             onChange={date => this.changeDateHandler(date)}
                                             // dateFormat="yyyy-mm-dd"
                                             />
                                         </div>
-                                        
-                                        <select value={this.state.selectedSlot} onChange={this.changeSlotHandler}> 
+                                        <label>Select the Slot</label>
+                                        <select value={this.state.selectedSlot} onChange={this.changeSlotHandler} style={{width:300}}> 
                                             {this.props.location.params.props.slots.map(data=>(
                                                 <option value={data.slot_id}>{data.start_time} to {data.end_time}</option>
                                             )

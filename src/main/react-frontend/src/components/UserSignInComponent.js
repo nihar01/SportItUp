@@ -72,6 +72,12 @@ class UserSignInComponent extends Component {
                 console.log(this.state.id)
                 console.log(res.data.user_id)
                 console.log(res.data.firstName)
+
+                // Save data to sessionStorage
+                sessionStorage.setItem('user_id', res.data.user_id);
+
+// Get saved data from sessionStorage
+                // let data = sessionStorage.getItem('key');
         
                 this.props.handleLog(this.state.loggedIn,res.data.user_id);
                 

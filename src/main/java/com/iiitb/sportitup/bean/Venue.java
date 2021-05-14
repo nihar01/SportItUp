@@ -28,11 +28,19 @@ public class Venue {
             cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
+//    @OneToMany(mappedBy = "activityVenue",
+//            fetch = FetchType.EAGER,
+//            cascade = CascadeType.ALL)
+//    private List<Activity> activityList;
+
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "venue_slots",
         joinColumns = {@JoinColumn(name ="venue_id")},
             inverseJoinColumns = {@JoinColumn(name = "slot_id")}
     )
+
+
+
     private Set<Slots> slots= new HashSet<>();
 
 

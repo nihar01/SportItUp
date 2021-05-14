@@ -12,6 +12,7 @@ class ActivityComponent extends Component {
             activityTime: this.props.activityTime,
             numberOfPlayers: this.props.numberOfPlayers,
             chargesPerPerson: this.props.chargesPerPerson,
+            venue_id:this.props.venue_id,
             userId:this.props.userId
         }   
     }
@@ -28,8 +29,10 @@ class ActivityComponent extends Component {
                 <p>Activity Id: {this.state.activity_id}</p>
                 <p>Activity Date:{this.state.activityDate}</p>
                 <p>Activity Time:{this.state.activityTime}</p>
+                
                 <p>Players Required:{this.state.numberOfPlayers} </p>
                 <p>Charges per person:{this.state.chargesPerPerson} </p>
+                <p>Venue ID:{this.state.venue_id} </p>
                 <Link to={{pathname:'/ActivityDetails',activity_id:this.state.activity_id, userId:this.state.userId}}>
                     <button className="btn btn-primary">View Details</button>
                 </Link>
