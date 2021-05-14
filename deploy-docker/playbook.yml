@@ -7,3 +7,9 @@
       docker_image:
         name: nihar01/sportitup
         source: pull
+        
+    - name: Pull MySQl image
+      docker_image:
+        name: mysql:5.7    
+
+          
