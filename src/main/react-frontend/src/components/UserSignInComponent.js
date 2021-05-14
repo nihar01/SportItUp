@@ -73,6 +73,8 @@ class UserSignInComponent extends Component {
                 console.log(res.data.user_id)
                 console.log(res.data.firstName)
                 console.log(res.data.adminFlag)
+
+            sessionStorage.setItem('user_id', res.data.user_id);
                 this.props.handleLog(this.state.loggedIn,res.data.user_id,res.data.adminFlag);
                 
                 if(res.data.adminFlag){
