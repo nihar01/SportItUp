@@ -25,7 +25,7 @@ class Welcome extends Component {
         console.log(this.props.isloggedIn)
         return (
             <div>
-                <BsCarousel/>
+                <BsCarousel />
                 {/* {console.log(this.props.state.loggedIn)}
                 {console.log(this.props.state.name)} */}
                 <br />
@@ -41,14 +41,17 @@ class Welcome extends Component {
                     <h2>Book a venue</h2>
                     <p>Looking for a place to play !! checkout from our long list of playgrounds and find you favourite</p>
                     <Link to="/VenueList">
-                    <a className="nav-link " href="" tabindex="-1" aria-disabled="true">See Venues</a>
+                    <a class="btn btn-secondary"  href="" tabindex="-1" aria-disabled="true">See Venues</a>
                     </Link>
                 </div>
                 <div class="col-lg-6">
-                    <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/></svg>
-                    <h2>Events</h2>
-                    <p>Check nearby events</p>
+                <img src="https://image.flaticon.com/icons/png/512/2158/2158445.png" style={{width:130}}/>
+                    {/* <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 140x140"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/></svg> */}
+                    <h2>View Sports Activites</h2>
+                    <p>Join the Activity that interests you and meet your Play Buddies.</p>
+                    <Link to="/ActivityList">
                     <p><a class="btn btn-secondary" href="#" role="button">Check &raquo;</a></p>
+                    </Link>
                 </div>
                     <div class="col-lg-6">
                     <svg xmlns="http://www.w3.org/2000/svg" width="140" height="140" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16">
@@ -57,7 +60,7 @@ class Welcome extends Component {
                     <h2>See your History</h2>
                     <p>Check history of your previous bookings</p>
                     <Link to="/BookingList">
-                    <a className="nav-link " href="" tabindex="-1" aria-disabled="true">Check History</a>
+                    <a class="btn btn-secondary"  href="" tabindex="-1" aria-disabled="true">Check History</a>
                     </Link>
                 </div>
                 </div>

@@ -18,8 +18,8 @@ export class BsCarousel extends Component {
                         alt="First slide"
                     />
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <h3>Book you favourite Venues</h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
 
@@ -30,8 +30,8 @@ export class BsCarousel extends Component {
                         alt="Second slide"
                     />
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <h3>Find Play Buddies</h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
 
@@ -42,8 +42,8 @@ export class BsCarousel extends Component {
                         alt="Third slide"
                     />
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <h3>Create Activities</h3>
+                        <p></p>
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel>  
