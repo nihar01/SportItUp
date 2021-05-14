@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const ACTIVITY_API_BASE_URL="http://localhost:8081/api/activity"
+const ACTIVITY_API_BASE_URL="http://localhost:8091/api/activity"
 
-const ACTIVITY_API_BASE_URL_JOIN="http://localhost:8081/api/activity/join"
+const ACTIVITY_API_BASE_URL_JOIN="http://localhost:8091/api/activity/join"
 
 class UserService{
 
