@@ -13,6 +13,8 @@ import AdminDashboard from "./components/AdminDashboard"
 import Venueshow from './components/Venueshow';
 import BookingList from './components/BookingList';
 import DoBooking from './components/DoBooking';
+import First from './components/First';
+import NewVenue from './components/NewVenue';
 
 class App extends React.Component {
   
@@ -21,17 +23,20 @@ class App extends React.Component {
 
   let isloggedIn = false
   let uId
+  let adminFlag = false
   this.state = {
     isloggedIn ,
-    uId
+    uId ,
+    adminFlag
     
     
   }
   this.handleLogin = this.handleLogin.bind(this)
 }
 
-  handleLogin(loggedIn,Id) {
-    this.setState({ isloggedIn: loggedIn , uId: Id});
+  handleLogin(loggedIn,Id,isAdminFlag) {
+    console.log(isAdminFlag)
+    this.setState({ isloggedIn: loggedIn , uId: Id,adminFlag:isAdminFlag});
     
   }
   
@@ -40,10 +45,10 @@ class App extends React.Component {
   
     <div  >
       <Router>
-      <HeaderComponent  isloggedIn={this.state.isloggedIn}/>
+      <HeaderComponent adminFlag={this.state.adminFlag} isloggedIn={this.state.isloggedIn}/>
                 <div className="container">
                   <Switch>
-                  <Route path="/" exact component={UserSignInComponent}></Route>
+                  <Route path="/" exact component={First}></Route>
                   <Route path="/Welcome"   render={()=> <Welcome isloggedIn={this.state.isloggedIn}/>}></Route>
                   <Route path="/userRegisterComponent" component={UserRegisterComponent}></Route>
                   <Route path="/userSignInComponent" render={(props) => <UserSignInComponent {...props} handleLog = {this.handleLogin} />}></Route>
@@ -53,6 +58,7 @@ class App extends React.Component {
                   <Route path="/Venueshow" component={Venueshow}></Route>
                   <Route path="/BookingList" render={()=> <BookingList uId={this.state.uId} isloggedIn={this.state.isloggedIn}/>}></Route>
                   <Route path="/DoBooking" component={DoBooking}></Route>
+                  <Route path="/NewVenue" component={NewVenue}></Route>
                   </Switch>
                 </div>
         <FooterComponent/>

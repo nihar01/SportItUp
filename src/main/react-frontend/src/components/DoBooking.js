@@ -35,7 +35,8 @@ export default class DoBooking extends Component {
     }
     changeSlotHandler = (event)=>{
          this.setState({selectedSlot : event.target.value})
-        console.log(event)
+        console.log(event.target.value)
+        console.log(this.state.selectedSlot)
     }
     
 
@@ -57,6 +58,7 @@ export default class DoBooking extends Component {
                                     <form>
                                         
                                         <div className = "form-group">
+                                            <lable>Select Date</lable>
                                             <DatePicker 
                                             selected={this.state.selectedDate}
                                             onChange={date => this.changeDateHandler(date)}
@@ -64,7 +66,12 @@ export default class DoBooking extends Component {
                                             />
                                         </div>
                                         
-                                        <select value={this.state.selectedSlot} onChange={this.changeSlotHandler}> 
+                                       
+                                        <div className = "form-group">
+                                            <label> Select Slot </label>
+                                        <select className="form-control" 
+                                        autoFocus={true}
+                                        value={this.state.selectedSlot} onChange={this.changeSlotHandler}> 
                                             {this.props.location.params.props.slots.map(data=>(
                                                 <option value={data.slot_id}>{data.start_time} to {data.end_time}</option>
                                             )
@@ -73,7 +80,7 @@ export default class DoBooking extends Component {
                                             
                                             }
                                         </select>
-                                        
+                                        </div>
                                         <br/>
                                         <br/>
                                         <button className="btn btn-success" onClick={this.makeBooking}>Book</button>

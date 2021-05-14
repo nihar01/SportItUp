@@ -13,7 +13,7 @@ class  UserRegisterComponent extends Component {
             emailId: '',
             contactNumber:'',
             password:'',
-            isAdminFlag:0
+            isAdminFlag:false
 
         }
         this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
@@ -54,7 +54,7 @@ class  UserRegisterComponent extends Component {
     saveOrUpdateUser = (e) => {
         e.preventDefault();
         let user = {firstName: this.state.firstName, lastName: this.state.lastName, emailId: this.state.emailId,
-        contactNumber:this.state.contactNumber, password:this.state.password, isAdminFlag: this.state.isAdminFlag};
+        contactNumber:this.state.contactNumber, password:this.state.password, adminFlag: this.state.isAdminFlag};
         console.log('user => ' + JSON.stringify(user));
 
         // step 5is_admin_flag
@@ -88,8 +88,13 @@ class  UserRegisterComponent extends Component {
         this.setState({password: event.target.value});
     }
     changeIsAdminFlagHandler= (event) => {
+        
+        // this.setState({isAdminFlag: parseInt(event.target.value, 10)});
         this.setState({isAdminFlag: event.target.value});
+        console.log(event.target.value);
+        console.log(this.state.isAdminFlag);
     }
+    
 
 
 
@@ -140,12 +145,19 @@ class  UserRegisterComponent extends Component {
                                             <input placeholder="Password" name="password" type="password"  className="form-control" 
                                                 value={this.state.password} onChange={this.changePasswordHandler}/>
                                         </div>
-                                        <div className = "form-group">
-                                            <label>Is Admin</label>
-                                            <input placeholder="Is Admin" name="isAdminFlag" className="form-control" readOnly
-                                                value={this.state.isAdminFlag} onChange={this.changeIsAdminFlagHandler}/>
-                                        </div>
 
+                                        
+                                        <div className = "form-group">
+                                            <label> Is Admin ? </label>
+                                        <select  className="form-control" 
+                                        autoFocus={true}
+                                        value={this.state.isAdminFlag} onChange={this.changeIsAdminFlagHandler}> 
+                                            
+                                                <option value="false" >Not admin</option> 
+                                                <option value="true"> Admin</option>
+                    
+                                        </select>
+                                        </div>
                                         <button className="btn btn-success" type="submit" onClick={this.saveOrUpdateUser}>Register</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </form>

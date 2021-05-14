@@ -8,11 +8,10 @@ class VenueService{
         return axios.get(Venue_API_BASE_URL);   //get the data from the API mentioned
     }
 
-    // createUser(user)
-    // {
-    //     console.log('in create user service', user.emailId);
-    //     return axios.post(USER_API_BASE_URL,user);
-    // }
+    createVenue(venue)
+    {
+        return axios.post(Venue_API_BASE_URL,venue);
+    }
 
     // getUserById(userId){
     //     return axios.get(USER_API_BASE_URL + '/' + userId);

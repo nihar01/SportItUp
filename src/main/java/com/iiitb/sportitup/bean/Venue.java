@@ -28,7 +28,7 @@ public class Venue {
             cascade = CascadeType.ALL)
     private List<Booking> bookings;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "venue_slots",
         joinColumns = {@JoinColumn(name ="venue_id")},
             inverseJoinColumns = {@JoinColumn(name = "slot_id")}
