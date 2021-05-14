@@ -1,12 +1,10 @@
 package com.iiitb.sportitup.controller;
 
+import com.iiitb.sportitup.bean.User;
 import com.iiitb.sportitup.bean.Venue;
 import com.iiitb.sportitup.service.VenueService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +23,9 @@ public class VenueController {
         return venueService.getVenue();
     }
 
-
+    @PostMapping("/venue")
+    public Venue createVenue(@RequestBody Venue venue)  //mapping the JSON Body tot he object directly
+    {
+        return venueService.createVenue(venue);
+    }
 }

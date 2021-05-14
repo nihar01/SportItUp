@@ -22,4 +22,8 @@ public class VenueService {
         venueRepository.findAll().forEach(venueList::add);
         return venueList;
     }
+
+    public Venue createVenue(Venue venue) {
+        return venueRepository.save(venue);
+    }
 }
