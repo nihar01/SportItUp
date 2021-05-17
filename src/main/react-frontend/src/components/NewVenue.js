@@ -105,11 +105,11 @@ export default class NewVenue extends Component {
                                         </div>
                                         <div className = "form-group">
                                             <label> Cost per hour</label>
-                                            <input placeholder="Coat per hour" name="cost"  className="form-control" 
+                                            <input placeholder="Cost per hour" name="cost"  className="form-control" 
                                                 value={this.state.costPerHour} onChange={this.changeCostPerHourHandler}/>
                                         </div>
                                         <div className = "form-group">
-                                            <label> Give the Link for the image if venue: </label>
+                                            <label> Give the Link for the image of venue: </label>
                                             <input placeholder="Image link" name="imageLink" type="Link" className="form-control" 
                                                 value={this.state.imageLink} onChange={this.changeImageLinkHandler}/>
                                         </div>

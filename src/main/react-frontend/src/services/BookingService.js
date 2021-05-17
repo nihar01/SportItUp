@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const Booking_API_GET_BOOKINGBYUSER_URL="http://127.0.0.1:8091/api/bookingbyuser"
-const Booking_API_BASE_URL="http://127.0.0.1:8091/api/booking"
+const Booking_API_GET_BOOKINGBYUSER_URL="http://127.0.0.1:8081/api/bookingbyuser"
+const Booking_API_BASE_URL="http://127.0.0.1:8081/api/booking"
 class BookingService{
 
     getBookingByUser(UserId)

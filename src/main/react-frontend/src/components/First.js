@@ -4,7 +4,7 @@ class First extends Component {
     render() {
         return (
             <div>
-                <h1>this page is shown when you enter the website</h1>
+                <h1>Welcome to Sportitup.Login to proceed</h1>
             </div>
         );
     }

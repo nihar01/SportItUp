@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const Venue_API_BASE_URL="http://localhost:8091/api/venue"
+const Venue_API_BASE_URL="http://localhost:8081/api/venue"
 class VenueService{
 
     getVenue()

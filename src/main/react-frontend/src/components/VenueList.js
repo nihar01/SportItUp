@@ -32,9 +32,11 @@ class VenueList extends Component {
         console.log(varr);
         return(
             //<h1>123</h1>
+            <div> <h1>Venue List</h1>
             <CardDeck>
             {varr}
             </CardDeck>
+            </div>
         );
         
     }
