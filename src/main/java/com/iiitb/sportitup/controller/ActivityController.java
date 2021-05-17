@@ -2,6 +2,9 @@ package com.iiitb.sportitup.controller;
 
 import com.iiitb.sportitup.bean.Activity;
 import com.iiitb.sportitup.service.ActivityService;
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +22,7 @@ public class ActivityController {
     public ActivityController(ActivityService activityService) {
         this.activityService = activityService;
     }
-
+    private static Logger logger = LoggerFactory.getLogger(ActivityController.class);
     @GetMapping("/activity")
     public List<Activity> getAllActivity() {
         return activityService.getAllActivity();
@@ -53,10 +56,13 @@ public class ActivityController {
           Activity updatedActivity= activityService.joinActivity(activity_id);
 
           if(updatedActivity!=null) {
+              logger.info("[User joined the activity] - " + updatedActivity.getActivity_id());
               return ResponseEntity.ok(updatedActivity);
           }
           else
               return null;
+//              logger.warn("[Maximum limit reached for activity] - " + updatedActivity.getActivity_id());
+
 }
 
 }

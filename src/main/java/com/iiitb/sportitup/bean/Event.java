@@ -58,6 +58,9 @@ public class Event {
         this.event_id = event_id;
     }
 
+    public Event() {
+    }
+
     public Event(String event_title, String event_detail, String img_link, Date event_date) {
         this.event_title = event_title;
         this.event_detail = event_detail;

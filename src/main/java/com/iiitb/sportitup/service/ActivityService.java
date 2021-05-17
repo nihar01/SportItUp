@@ -1,11 +1,17 @@
 package com.iiitb.sportitup.service;
 
 import com.iiitb.sportitup.bean.Activity;
+import com.iiitb.sportitup.controller.ActivityController;
+import com.iiitb.sportitup.controller.UserController;
 import com.iiitb.sportitup.exception.ResourceNotFoundException;
 import com.iiitb.sportitup.repository.ActivityRepository;
+import org.apache.logging.log4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +25,7 @@ public class ActivityService {
     public ActivityService(ActivityRepository activityRepository) {
         this.activityRepository = activityRepository;
     }
-
+    private static org.slf4j.Logger logger = LoggerFactory.getLogger(ActivityService.class);
     public List<Activity> getAllActivity() {
 
         List<Activity> activityList= activityRepository.findAll();
@@ -29,7 +35,10 @@ public class ActivityService {
     public Activity createActivity(Activity activity)
     {
         System.out.println(activity.toString());
-        return activityRepository.save(activity);
+        Activity activity2= activityRepository.save(activity);
+
+  logger.info("[New Activity Created with id] - " + activity2.getActivity_id());
+        return activity2;
     }
     public Activity getActivityById(Integer id){
 

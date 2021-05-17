@@ -1,8 +1,11 @@
 package com.iiitb.sportitup.service;
 
 import com.iiitb.sportitup.bean.User;
+import com.iiitb.sportitup.controller.ActivityController;
 import com.iiitb.sportitup.exception.ResourceNotFoundException;
 import com.iiitb.sportitup.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -14,7 +17,7 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-
+    private static Logger logger = LoggerFactory.getLogger(UserService.class);
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
